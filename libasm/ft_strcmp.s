@@ -21,7 +21,7 @@ condition:
 	je diffrence
 	jmp increment
 
-diffrence
+diffrence:
 	sub dl, bl
 	jmp return
 
