@@ -1,1 +1,1 @@
-{"buildTargets":["all","clean","fclean","ft_strlen.o","re"],"launchTargets":["/Volumes/Samsung_T5/MacBook Pro/42cursus/libasm>a.out()"],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
+{"buildTargets":["all","clean","fclean","ft_strlen.o","libasm.a","re"],"launchTargets":["/Volumes/Samsung_T5/MacBook Pro/42cursus/libasm>a.out()"],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

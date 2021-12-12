@@ -1,6 +1,14 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory `/Volumes/Samsung_T5/MacBook Pro/42cursus/libasm'
-nasm -f macho64 ft_strlen.s
-ld ft_strlen.o
+ 
+make: *** No rule to make target `_ft_strlen.o', needed by `libasm.a'.
+make: *** No rule to make target `_ft_strcmp.o', needed by `libasm.a'.
+make: *** No rule to make target `_ft_strdup.o', needed by `libasm.a'.
+make: *** No rule to make target `_ft_strcpy.o', needed by `libasm.a'.
+ 
+make: *** No rule to make target `_ft_read.o', needed by `libasm.a'.
+ 
+make: *** No rule to make target `_ft_write.o', needed by `libasm.a'.
+ 
 make: Leaving directory `/Volumes/Samsung_T5/MacBook Pro/42cursus/libasm'
  
