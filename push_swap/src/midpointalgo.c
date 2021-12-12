@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   midpointalgo.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaghat <amaghat@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: mazoukni <mazoukni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 15:52:32 by amaghat           #+#    #+#             */
-/*   Updated: 2021/07/12 19:06:56 by amaghat          ###   ########.fr       */
+/*   Updated: 2021/07/21 05:06:43 by mazoukni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,16 @@ long long	ft_atol(const char *str)
 
 void	ft_midpoint_algo(t_state *state)
 {
-	if (ft_len_pile(state->pile_a) == 3)
+	if (ft_len_pile(state->stack_a) == 3)
 		mini_sort(state);
-	while (!pile_is_sorted(state->pile_a)
-		|| ft_len_pile(state->pile_a) != state->size)
+	while (!pile_is_sorted(state->stack_a)
+		|| ft_len_pile(state->stack_a) != state->size)
 	{
-		if (pile_is_sorted(state->pile_a) && !state->pile_b)
+		if (pile_is_sorted(state->stack_a) && !state->stack_b)
 			return ;
 		else
 		{
-			if (!pile_is_sorted(state->pile_a))
+			if (!pile_is_sorted(state->stack_a))
 				ft_pushrot(state, 1);
 			else
 				ft_rev_pushrot(state);
@@ -58,31 +58,31 @@ void	ft_midpoint_algo(t_state *state)
 	}
 }
 
-void	print_state(t_state *state)
-{
-	t_pile	*tmp;
+// void	print_state(t_state *state)
+// {
+// 	t_pile	*tmp;
 
-	tmp = state->pile_a;
-	ft_putstr_fd("===> Pile A:\n", 1);
-	while (tmp)
-	{
-		ft_putnbr_fd(tmp->value, 1);
-		ft_putstr_fd("   ", 1);
-		ft_putnbr_fd(tmp->partition, 1);
-		ft_putstr_fd("\n", 1);
-		tmp = tmp->next;
-	}
-	tmp = state->pile_b;
-	ft_putstr_fd("===> Pile B:\n", 1);
-	while (tmp)
-	{
-		ft_putnbr_fd(tmp->value, 1);
-		ft_putstr_fd("   ", 1);
-		ft_putnbr_fd(tmp->partition, 1);
-		ft_putstr_fd("\n", 1);
-		tmp = tmp->next;
-	}
-}
+// 	tmp = state->stack_a;
+// 	ft_putstr_fd("===> Pile A:\n", 1);
+// 	while (tmp)
+// 	{
+// 		ft_putnbr_fd(tmp->value, 1);
+// 		ft_putstr_fd("   ", 1);
+// 		ft_putnbr_fd(tmp->partition, 1);
+// 		ft_putstr_fd("\n", 1);
+// 		tmp = tmp->next;
+// 	}
+// 	tmp = state->stack_b;
+// 	ft_putstr_fd("===> Pile B:\n", 1);
+// 	while (tmp)
+// 	{
+// 		ft_putnbr_fd(tmp->value, 1);
+// 		ft_putstr_fd("   ", 1);
+// 		ft_putnbr_fd(tmp->partition, 1);
+// 		ft_putstr_fd("\n", 1);
+// 		tmp = tmp->next;
+// 	}
+// }
 
 void	ft_check_instruct(t_state *state, char *str)
 {
@@ -102,7 +102,7 @@ int	check_duplicate(t_state *state, int n)
 {
 	t_pile	*tmp;
 
-	tmp = state->pile_a;
+	tmp = state->stack_a;
 	while (tmp)
 	{
 		if (tmp->value == n)

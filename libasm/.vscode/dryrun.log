@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Volumes/Samsung_T5/MacBook Pro/42cursus/libasm'
+nasm -f macho64 ft_strlen.s
+ld ft_strlen.o
+make: Leaving directory `/Volumes/Samsung_T5/MacBook Pro/42cursus/libasm'
+ 

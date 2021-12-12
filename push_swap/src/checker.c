@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaghat <amaghat@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: mazoukni <mazoukni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 14:25:34 by amaghat           #+#    #+#             */
-/*   Updated: 2021/07/11 14:09:06 by amaghat          ###   ########.fr       */
+/*   Updated: 2021/07/20 01:12:41 by mazoukni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	ft_exec_instructs(t_state *checker)
 
 void	ft_checker(t_state *checker)
 {
-	if (checker->pile_b || !pile_is_sorted(checker->pile_a))
+	if (checker->stack_b || !pile_is_sorted(checker->stack_a))
 	{
 		ft_putstr_fd("KO\n", 1);
 		exit_state(checker);

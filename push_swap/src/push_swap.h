@@ -18,7 +18,7 @@
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 
-typedef struct s_pile
+typedef struct s_pile // double linked list
 {
 	struct s_pile	*next;
 	struct s_pile	*prev;
@@ -26,10 +26,10 @@ typedef struct s_pile
 	int				value;
 }				t_pile;
 
-typedef struct s_state
+typedef struct s_state 
 {
-	t_pile			*pile_a;
-	t_pile			*pile_b;
+	t_pile			*stack_a;
+	t_pile			*stack_b;
 	int				size;
 	char			**instructs;
 }				t_state;
@@ -51,7 +51,7 @@ int			ft_issign(char c);
 void		add_back_pile(t_pile **pile, t_pile *stack);
 void		init_state(t_state *state, int argc, char **argv);
 void		exit_state(t_state *state);
-void		print_state(t_state *state);
+//void		print_state(t_state *state);
 void		bubble_sort(int arr[], int n);
 int			pile_is_sorted(t_pile *pile);
 int			part_is_sorted(t_pile *pile);

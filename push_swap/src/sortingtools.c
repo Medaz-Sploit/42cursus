@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sortingtools.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaghat <amaghat@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: mazoukni <mazoukni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 19:26:14 by amaghat           #+#    #+#             */
-/*   Updated: 2021/07/09 19:26:14 by amaghat          ###   ########.fr       */
+/*   Updated: 2021/07/20 01:12:26 by mazoukni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,9 @@ void	mini_sort(t_state *state)
 	int	y;
 	int	z;
 
-	x = state->pile_a->value;
-	y = state->pile_a->next->value;
-	z = state->pile_a->next->next->value;
+	x = state->stack_a->value;
+	y = state->stack_a->next->value;
+	z = state->stack_a->next->next->value;
 	if (x < y && y < z)
 		return ;
 	else if (x > y && y < x && x < z)

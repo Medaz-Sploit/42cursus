@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moreinstructs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaghat <amaghat@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: mazoukni <mazoukni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 04:01:29 by amaghat           #+#    #+#             */
-/*   Updated: 2021/06/09 04:01:29 by amaghat          ###   ########.fr       */
+/*   Updated: 2021/07/21 00:23:11 by mazoukni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	ra(t_state *state, int check)
 	t_pile	*tmp;
 	t_pile	*first;
 
-	if (state->pile_a && state->pile_a->next)
+	if (state->stack_a && state->stack_a->next)
 	{
-		first = state->pile_a;
-		state->pile_a = state->pile_a->next;
+		first = state->stack_a;
+		state->stack_a = state->stack_a->next;
 		tmp = first;
 		while (tmp->next)
 			tmp = tmp->next;
@@ -36,10 +36,10 @@ void	rb(t_state *state, int check)
 	t_pile	*tmp;
 	t_pile	*first;
 
-	if (state->pile_b && state->pile_b->next)
+	if (state->stack_b && state->stack_b->next)
 	{
-		first = state->pile_b;
-		state->pile_b = state->pile_b->next;
+		first = state->stack_b;
+		state->stack_b = state->stack_b->next;
 		tmp = first;
 		while (tmp->next)
 			tmp = tmp->next;
@@ -63,15 +63,15 @@ void	rra(t_state *state, int check)
 	t_pile	*tmp;
 	t_pile	*last;
 
-	if (state->pile_a && state->pile_a->next)
+	if (state->stack_a && state->stack_a->next)
 	{
-		tmp = state->pile_a;
+		tmp = state->stack_a;
 		while (tmp->next->next)
 			tmp = tmp->next;
 		last = tmp->next;
 		tmp->next = NULL;
-		last->next = state->pile_a;
-		state->pile_a = last;
+		last->next = state->stack_a;
+		state->stack_a = last;
 	}
 	if (!check)
 		ft_putstr_fd("rra\n", 1);
@@ -82,15 +82,15 @@ void	rrb(t_state *state, int check)
 	t_pile	*tmp;
 	t_pile	*last;
 
-	if (state->pile_b && state->pile_b->next)
+	if (state->stack_b && state->stack_b->next)
 	{
-		tmp = state->pile_b;
+		tmp = state->stack_b;
 		while (tmp->next->next)
 			tmp = tmp->next;
 		last = tmp->next;
 		tmp->next = NULL;
-		last->next = state->pile_b;
-		state->pile_b = last;
+		last->next = state->stack_b;
+		state->stack_b = last;
 	}
 	if (!check)
 		ft_putstr_fd("rrb\n", 1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   statefuncs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaghat <amaghat@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: mazoukni <mazoukni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 15:52:14 by amaghat           #+#    #+#             */
-/*   Updated: 2021/07/12 20:55:58 by amaghat          ###   ########.fr       */
+/*   Updated: 2021/07/21 00:20:15 by mazoukni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	init_state(t_state *state, int argc, char **argv)
 	argc--;
 	argv++;
 	state->size = argc;
-	state->pile_b = NULL;
-	state->pile_a = NULL;
+	state->stack_b = NULL;
+	state->stack_a = NULL;
 	while (i < argc)
 	{
 		n = ft_atol(*argv);
@@ -42,7 +42,7 @@ void	init_state(t_state *state, int argc, char **argv)
 		tmp->value = (int)n;
 		tmp->partition = 0;
 		tmp->next = NULL;
-		add_back_pile(&state->pile_a, tmp);
+		add_back_pile(&state->stack_a, tmp);
 		argv++;
 		i++;
 	}
@@ -87,14 +87,14 @@ void	exit_state(t_state *state)
 	t_pile	*tmp;
 	t_pile	*loop;
 
-	loop = state->pile_a;
+	loop = state->stack_a;
 	while (loop)
 	{
 		tmp = loop;
 		loop = loop->next;
 		free(tmp);
 	}
-	loop = state->pile_b;
+	loop = state->stack_b;
 	while (loop)
 	{
 		tmp = loop;

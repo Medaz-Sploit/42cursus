@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   midpoint.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaghat <amaghat@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: mazoukni <mazoukni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 13:25:24 by amaghat           #+#    #+#             */
-/*   Updated: 2021/07/12 19:10:57 by amaghat          ###   ########.fr       */
+/*   Updated: 2021/07/20 01:12:41 by mazoukni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ void	ft_pushrot(t_state *state, int rot)
 	int	part;
 	int	nra;
 
-	part = state->pile_a->partition;
-	while (!pile_is_sorted(state->pile_a)
-		&& ft_len_partition(state->pile_a) > 2)
+	part = state->stack_a->partition;
+	while (!pile_is_sorted(state->stack_a)
+		&& ft_len_partition(state->stack_a) > 2)
 	{
 		part++;
 		nra = 0;
-		midpoint = ft_find_midpoint(state->pile_a);
-		while (ft_check_inf(state->pile_a, midpoint))
+		midpoint = ft_find_midpoint(state->stack_a);
+		while (ft_check_inf(state->stack_a, midpoint))
 		{
 			if (iter_atob(state, midpoint, part))
 			{
@@ -59,16 +59,16 @@ void	ft_pushrot(t_state *state, int rot)
 		while (!rot && nra--)
 			rra(state, 0);
 	}
-	if (!part_is_sorted(state->pile_a) && ft_len_partition(state->pile_a) == 2)
+	if (!part_is_sorted(state->stack_a) && ft_len_partition(state->stack_a) == 2)
 		sa(state, 0);
 }
 
 int	iter_atob(t_state *state, int midpoint, int part)
 {
-	if (state->pile_a->value < midpoint)
+	if (state->stack_a->value < midpoint)
 	{
 		pb(state, 0);
-		state->pile_b->partition = part;
+		state->stack_b->partition = part;
 		return (0);
 	}
 	return (1);

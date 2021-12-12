@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaghat <amaghat@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: mazoukni <mazoukni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 04:01:14 by amaghat           #+#    #+#             */
-/*   Updated: 2021/06/09 04:01:14 by amaghat          ###   ########.fr       */
+/*   Updated: 2021/07/21 00:14:29 by mazoukni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 	t_state	state;
 
 	init_state(&state, argc, argv);
-	if (state.pile_a)
+	if (state.stack_a)
 	{
 		ft_midpoint_algo(&state);
 		exit_state(&state);

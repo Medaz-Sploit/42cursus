@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   revpushrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amaghat <amaghat@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: mazoukni <mazoukni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 13:06:24 by aabounak          #+#    #+#             */
-/*   Updated: 2021/07/12 19:41:04 by amaghat          ###   ########.fr       */
+/*   Updated: 2021/07/20 01:12:41 by mazoukni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ void	iter_btoa(t_state *state)
 	int	nrb;
 
 	nrb = 0;
-	midpoint = ft_find_midpoint(state->pile_b);
-	while (ft_check_sup(state->pile_b, midpoint))
+	midpoint = ft_find_midpoint(state->stack_b);
+	while (ft_check_sup(state->stack_b, midpoint))
 	{
-		if (state->pile_b->value > midpoint)
+		if (state->stack_b->value > midpoint)
 		{
 			pa(state, 0);
-			state->pile_a->partition++;
-			state->pile_a->partition++;
+			state->stack_a->partition++;
+			state->stack_a->partition++;
 		}
 		else
 		{
@@ -51,24 +51,24 @@ void	ft_rev_pushrot(t_state *state)
 	t_pile	*tmp;
 	int		part;
 
-	tmp = state->pile_b;
+	tmp = state->stack_b;
 	part = tmp->partition;
 	while (tmp && tmp->partition == part)
 	{
-		if (ft_len_partition(state->pile_b) == 1)
+		if (ft_len_partition(state->stack_b) == 1)
 		{
 			pa(state, 0);
-			tmp = state->pile_b;
+			tmp = state->stack_b;
 		}
-		else if (ft_len_partition(state->pile_b) == 2)
+		else if (ft_len_partition(state->stack_b) == 2)
 		{
 			finish_shunk(state, tmp);
-			tmp = state->pile_b;
+			tmp = state->stack_b;
 		}
 		else
 		{
 			iter_btoa(state);
-			tmp = state->pile_b;
+			tmp = state->stack_b;
 		}
 		if (tmp)
 			tmp = tmp->next;
