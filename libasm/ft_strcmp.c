@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mazoukni <mazoukni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/12 10:15:37 by mazoukni          #+#    #+#             */
-/*   Updated: 2021/12/12 10:16:15 by mazoukni         ###   ########.fr       */
+/*   Created: 2021/12/12 10:26:35 by mazoukni          #+#    #+#             */
+/*   Updated: 2021/12/12 10:26:40 by mazoukni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strcpy(char *dest, char *src)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int i;
 
 	i = 0;
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
 		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	return (s1[i] - s2[i]);
 }
