@@ -6,30 +6,40 @@
 #    By: mazoukni <mazoukni@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/12 12:01:27 by mazoukni          #+#    #+#              #
-#    Updated: 2021/12/13 19:09:55 by mazoukni         ###   ########.fr        #
+#    Updated: 2021/12/14 02:47:03 by mazoukni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libasm.a
-FLAGS = -Wall -Wextra -Werror
-CC = /Users/mazoukni/homebrew/Cellar/nasm/2.15.05/bin/nasm -f macho64
-SRC =	_ft_strlen.s _ft_strcmp.s _ft_strdup.s \
-		_ft_strcpy.s _ft_read.s _ft_write.s
-OBJ = $(SRC:.s=.o)
+CC = ~/homebrew/bin/nasm -f macho64
+Test = LiveIsHard
+OBJ =	ft_strlen.o ft_strcmp.o ft_strdup.o \
+		ft_strcpy.o ft_read.o ft_write.o
+
+%.o:	%.s
+	@$(CC) ft_strlen.s
+	@$(CC) ft_strcmp.s
+	@$(CC) ft_strdup.s
+	@$(CC) ft_strcpy.s
+	@$(CC) ft_read.s
+	@$(CC) ft_write.s
+
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(SRC)
-	ar rcs $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@ar rcs $(NAME) $(OBJ)
+	@ranlib $(NAME)
+
+test:
+	gcc -g -o $(Test) main.c libasm.a
 
 clean:
-	rm -rf $(OBJ)
+	@rm -rf $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
 
-.PHONY: all re fclean clean
+.PHONY: all re fclean clean test
