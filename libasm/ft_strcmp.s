@@ -1,30 +1,24 @@
 			section .text
 			global _ft_strcmp
 
+; rdi s1
+; rsi s2
 _ft_strcmp:
-			xor rcx, rcx
-			xor rdx, rdx
-			xor rbx, rbx
-			jmp condition
-
-increment:
-			inc rcx
-
-condition:
-			mov dl, BYTE [rdi + rcx]
-			mov bl, BYTE [rsi + rcx]
-			cmp bl, dl
-			jne diffrence
-			cmp bl, 0
-			je diffrence
-			cmp dl, 0
-			je diffrence
-			jmp increment
-
-diffrence:
-			sub dl, bl
-			jmp return
-
-return:
-			mov rax, rdx
-			ret
+            xor rdx, rdx
+            xor rbx, rbx
+            xor rcx, rcx
+            mov rcx, -1
+looop:   
+            inc rcx
+            mov dl, BYTE [rsi + rcx]
+            mov bl, BYTE [rdi + rcx]
+            cmp dl, 0
+            je done
+            cmp bl, 0
+            je done
+            cmp dl, bl
+            je looop
+            jmp done
+done:
+            sub rax, rdx
+            ret

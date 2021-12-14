@@ -4,12 +4,12 @@
 _ft_read:
 			mov rax, 0x2000003
 			syscall
-			jc errno
+			jc error
 			ret
 
-errno:
+error:
 			push rax
-			mov rax, -1
 			call ___error
-			pop rax
+			pop QWORD [rax]
+			mov rax, -1
 			ret

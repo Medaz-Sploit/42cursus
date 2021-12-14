@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 15:19:07 by ncolomer          #+#    #+#             */
-/*   Updated: 2021/12/14 02:51:31 by mazoukni         ###   ########.fr       */
+/*   Updated: 2021/12/14 17:38:42 by mazoukni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,7 @@ int		main(void)
 	READ(buffer, 26)
 	READ(buffer, 14)
 	READ(buffer, 0)
-	p
-     printf("\n--strcpy\n");
-     printf("`%s` (`toto`)\n", ft_strcpy(buffer, "toto"));
-     printf("`%s` (empty)\n", ft_strcpy(buffer, ""));
-     printf("`%s` (`long message`)\n", ft_strcpy(buffer, "long message"));
-     printf("`%s` (NULL > not mrintf("-done\n");
+    printf("-done\n");
 
 	printf("\n--ft_strdup\n");
 	tmp2 = ft_strdup("toto");

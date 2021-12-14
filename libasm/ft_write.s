@@ -10,7 +10,7 @@ _ft_write:
 
 error:
 			push rax
-            mov rax, -1
 			call ___error
-			pop rax	
+			pop QWORD [rax]	
+            mov rax, -1
 			ret

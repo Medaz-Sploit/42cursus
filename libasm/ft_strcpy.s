@@ -1,18 +1,22 @@
 			section .text
 			global _ft_strcpy
 
-compare:
-			mov dl, BYTE [rsi + rcx]
-			mov BYTE [rdi + rcx], dl
-			inc rcx
-
 _ft_strcpy:
-			xor rcx, rcx
-			cmp BYTE [rsi + rcx], 0
-			jne compare
-			jmp return
+            xor rcx, rcx
+            xor rdx, rdx
+            cmp rsi, 0
+            jz return
+            jmp copy
+
+increment:
+            inc rcx
+
+copy:
+            mov dl, BYTE [rsi + rcx]
+            mov BYTE [rdi + rcx], dl
+            cmp dl, 0
+            jne increment
 
 return:
-			mov BYTE [rdi + rcx], 0
-			mov rax, rdi
-			ret
+            mov rax, rdi
+            ret
